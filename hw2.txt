@@ -1,0 +1,22 @@
+Ans. 
+Hw2 Part C answers
+To create and initialize a git repository in the local system we use “git init”. To configure the remote repository we set it from the remote url command as git remote add origin <github link of the repo>. 
+The output of git remote –v will be 
+origin	https://github.com/shataksh/SWE525HW2PartC.git (fetch)
+origin	https://github.com/shataksh/SWE525HW2PartC.git (push)
+
+git fetch origin will not show any new updates since the repository is already up to date with the origin master.
+To update the local master branch with the remote we use command :
+Git fetch origin
+Git merge origin/master
+
+To fetch all the branches from remote we can do:
+Git fetch –all
+
+Bare repository - Repositories created with git init --bare are called bare repos. They are structured a bit differently from working directories. First off, they contain no working or checked out copy of your source files. And second, bare repos store git revision history of your repo in the root folder of your repository instead of in a .git subfolder unlike in normal git init repos. 
+A working repository created with git init is for… working. It is where you will actually edit, add and delete files and git commit to save your changes. If you are starting a project in a folder on your dev machine where you will add, edit and delete files of your project, use “git init”. Note: if you git clone a repository you will be given a working repository with the .git folder and copies of the working files for editing.
+A bare repository created with git init --bare is for… sharing. If you are collaborating with a team of developers, and need a place to share changes to a repo, then you will want to create a bare repository in centralized place where all users can push their changes (often the easy choice is github.com). Because git is a distributed version control system, no one will directly edit files in the shared centralized repository. Instead developers will clone the shared bare repo, make changes locally in their working copies of the repo, then push back to the shared bare repo to make their changes available to other users.
+To get the changes from master there are two ways : Either we can do a fetch and then merge the changes in the local branch depending on the remote branch we want to get the changes from or we can do a git pull from the remote branch. Sometimes it is better to do a fetch and merge operation rather than doing a pull directly, if we have some changes in our local codebase which we don’t want to merge directly before reviewing. With git fetch it will fetch the remote tracking branches and then we can see if we want to merge or not to avoid conflicts.
+
+To push commi on another branch to remote we would use : git push origin <branch>
+
